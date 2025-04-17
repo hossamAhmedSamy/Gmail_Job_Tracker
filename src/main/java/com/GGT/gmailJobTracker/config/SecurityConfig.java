@@ -12,21 +12,21 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests
-                                .requestMatchers("/", "/login", "/error").permitAll()
-                                .anyRequest().authenticated()
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/", "/login/**", "/error").permitAll()
+                        .anyRequest().authenticated()
                 )
-                .oauth2Login(oauth2 ->
-                        oauth2
-                                .loginPage("/login")
+                .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/dashboard", true)
                 )
-                .logout(logout ->
-                        logout
-                                .logoutSuccessUrl("/").permitAll()
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/")
+                        .permitAll()
                 );
 
         return http.build();
-    }}
+    }
+}
