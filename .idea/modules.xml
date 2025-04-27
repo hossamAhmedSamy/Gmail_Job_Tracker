@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/GGT.iml" filepath="$PROJECT_DIR$/.idea/GGT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gmailJobTracker/gmailJobTracker.iml" filepath="$PROJECT_DIR$/gmailJobTracker/gmailJobTracker.iml" />
+    </modules>
+  </component>
+</project>
